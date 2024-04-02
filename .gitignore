@@ -1,0 +1,5 @@
+data/train.record
+data/test.record
+images/test/*
+images/train/*
+Archive.zip

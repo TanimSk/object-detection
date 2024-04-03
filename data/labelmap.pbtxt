@@ -8,9 +8,49 @@ item {
 }
 item {
     id: 3
-    name: '100'
+    name: '20'
 }
 item {
     id: 4
+    name: '20_'
+}
+item {
+    id: 5
+    name: '50'
+}
+item {
+    id: 6
+    name: '50_'
+}
+item {
+    id: 7
+    name: '100'
+}
+item {
+    id: 8
     name: '100_'
+}
+item {
+    id: 9
+    name: '200'
+}
+item {
+    id: 10
+    name: '200_'
+}
+item {
+    id: 11
+    name: '500'
+}
+item {
+    id: 12
+    name: '500_'
+}
+item {
+    id: 13
+    name: '1000'
+}
+item {
+    id: 14
+    name: '1000_'
 }

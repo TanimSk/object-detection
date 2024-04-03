@@ -34,30 +34,37 @@ def class_text_to_int(row_label):
         return 1
     if row_label == "10_":
         return 2
+    
     if row_label == "20":
         return 3
     if row_label == "20_":
         return 4
+    
     if row_label == "50":
         return 5
     if row_label == "50_":
         return 6
+    
     if row_label == "100":
         return 7
     if row_label == "100_":
         return 8
+    
     if row_label == "200":
         return 9
     if row_label == "200_":
         return 10
+    
     if row_label == "500":
         return 11
     if row_label == "500_":
         return 12
+    
     if row_label == "1000":
         return 13
     if row_label == "1000_":
         return 14
+    
     else:
         return None
 
@@ -127,7 +134,8 @@ def main(_):
     examples = pd.read_csv(FLAGS.csv_input)
     grouped = split(examples, "filename")
     for group in grouped:
-        tf_example = create_tf_example(group, path)
+        print(path)
+        tf_example = create_tf_example(group, path)        
         writer.write(tf_example.SerializeToString())
 
     writer.close()

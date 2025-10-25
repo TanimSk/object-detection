@@ -60,6 +60,7 @@ def xml_to_csv(path):
     ]
     xml_df = pd.DataFrame(xml_list, columns=column_name)
     print(f"\n\nNumber of invalid images: {invalid_images}")
+    print(f"\n\nNumber of valid images: {len(xml_list)}")
     return xml_df
 
 

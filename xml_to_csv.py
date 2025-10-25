@@ -22,12 +22,28 @@ def xml_to_csv(path):
             xmax = int(member.find("bndbox")[2].text)
             ymax = int(member.find("bndbox")[3].text)
 
-            # print error if bounding box is invalid
-            if xmin >= xmax or ymin >= ymax:
-                invalid_images += 1
-                print("------------------------------------")
-                print(f"Invalid bounding box in {xml_file}")
-                continue
+            # if bounding box is outside image dimensions, print error
+            img_width = int(root.find("size")[0].text)
+            img_height = int(root.find("size")[1].text)
+            
+            if xmin >= xmax:
+                # swap values
+                xtemp = xmin
+                xmin = xmax
+                xmax = xtemp
+
+            if ymin >= ymax:
+                # swap values
+                ytemp = ymin
+                ymin = ymax
+                ymax = ytemp
+
+            if xmax > img_width or ymax > img_height:
+                # clip bounding box to image dimensions
+                if xmax > img_width:
+                    xmax = img_width
+                if ymax > img_height:
+                    ymax = img_height            
 
             # check negative values
             if xmin < 0 or ymin < 0 or xmax < 0 or ymax < 0:
